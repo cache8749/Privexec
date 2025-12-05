@@ -26,6 +26,7 @@ jobs:
       - uses: actions/checkout@v6
         with:
           fetch-depth: 1
+          submodules: true
       - name: compile-Privexec
         run: pwsh -NoProfile -NoLogo -ExecutionPolicy unrestricted -File "./build.ps1" -Target "${{ matrix.target }}"
 
