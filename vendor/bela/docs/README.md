@@ -1,3 +1,0 @@
-# Bela docs
-
-Bela documents.
