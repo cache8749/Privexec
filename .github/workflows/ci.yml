@@ -40,12 +40,10 @@ jobs:
           $obj=Get-FileHash -Algorithm SHA256 Privexec*.zip
           Split-Path -Leaf $obj.Path
           $obj.Algorithm +":"+$obj.Hash.ToLower()
-      - name: Upload release
-        uses: svenstaro/upload-release-action@v2
+          
+      - name: Upload release artifact
         if: startsWith(github.ref, 'refs/tags/')
+        uses: actions/upload-artifact@v4
         with:
-          file_glob: true
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: build/Privexec-*.zip
-          tag: ${{ github.ref }}
-          overwrite: true
+          name: Privexec-release
+          path: build/Privexec-*.zip
