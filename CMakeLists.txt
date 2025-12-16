@@ -93,7 +93,7 @@ include_directories(
   "${CMAKE_BINARY_DIR}/include"
   ./include
   ./vendor/bela/include
-  ./vendor/pugixml
+  ./vendor/pugixml/src
   ./lib/exec)
 
 configure_file("config/Privexec.json" "${CMAKE_BINARY_DIR}/bin/Privexec.json" COPYONLY)

@@ -1,0 +1,6 @@
+[submodule "vendor/bela"]
+	path = vendor/bela
+	url = git@github.com:fcharlie/bela.git
+[submodule "vendor/pugixml"]
+	path = vendor/pugixml
+	url = git@github.com:zeux/pugixml.git
