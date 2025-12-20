@@ -14,21 +14,13 @@ This process created the file `CMakeCache.txt' and the directory `CMakeFiles'.
 Please delete them.")
 endif()
 
+option(BUILD_TEST "build test" OFF)
+
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED YES)
 
-set(PRIVEXEC_ENABLE_LTO OFF)
-include(CheckIPOSupported)
-check_ipo_supported(RESULT lto_supported OUTPUT error)
-if(lto_supported)
-  message(STATUS "IPO/LTO supported")
-  if(CMAKE_BUILD_TYPE STREQUAL "Release")
-    set(PRIVEXEC_ENABLE_LTO ON)
-    set(BELA_ENABLE_LTO ON)
-    message(STATUS "IPO/LTO enabled")
-  endif()
-endif()
+set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
 
 if(MSVC)
   set(CMAKE_MSVC_RUNTIME_LIBRARY_DEFAULT "MultiThreaded$<$<CONFIG:Debug>:Debug>")
@@ -112,6 +104,7 @@ add_subdirectory(lib/exec)
 add_subdirectory(AppExec)
 add_subdirectory(Privexec)
 add_subdirectory(wsudo)
-if(NOT PRIVEXEC_ENABLE_LTO)
+
+if(BUILD_TEST)
   add_subdirectory(test/apc)
 endif()

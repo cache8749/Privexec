@@ -9,10 +9,6 @@ add_executable(
   Privexec.manifest
   Privexec.rc)
 
-if(PRIVEXEC_ENABLE_LTO)
-  set_property(TARGET Privexec PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE)
-endif()
-
 target_link_libraries(
   Privexec
   Exec

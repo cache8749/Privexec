@@ -8,10 +8,6 @@ add_executable(
   wsudo.rc
   wsudo.manifest)
 
-if(PRIVEXEC_ENABLE_LTO)
-  set_property(TARGET wsudo PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE)
-endif()
-
 target_link_libraries(
   wsudo
   Exec
@@ -29,10 +25,6 @@ target_link_libraries(
 install(TARGETS wsudo DESTINATION .)
 
 add_executable(wsudo-bridge wsudo-bridge.cc wsudo-bridge.trace.cc wsudo-bridge.rc wsudo.manifest)
-
-if(PRIVEXEC_ENABLE_LTO)
-  set_property(TARGET wsudo-bridge PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE)
-endif()
 
 target_link_libraries(
   wsudo-bridge

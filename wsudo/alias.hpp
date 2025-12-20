@@ -21,7 +21,7 @@ struct AliasTarget {
 
 class AliasEngine {
 public:
-  using value_type = bela::flat_hash_map<std::wstring, AliasTarget, bela::env::StringCaseInsensitiveHash,
+  using value_type = gtl::flat_hash_map<std::wstring, AliasTarget, bela::env::StringCaseInsensitiveHash,
                                          bela::env::StringCaseInsensitiveEq>;
   AliasEngine() = default;
   AliasEngine(const AliasEngine &) = delete;

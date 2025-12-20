@@ -10,10 +10,6 @@ add_executable(
   Appexec.manifest
   Appexec.rc)
 
-if(PRIVEXEC_ENABLE_LTO)
-  set_property(TARGET AppExec PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE)
-endif()
-
 target_link_libraries(
   AppExec
   Exec

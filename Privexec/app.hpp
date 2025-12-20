@@ -13,12 +13,12 @@
 #include <PathCch.h>
 #include <string_view>
 #include <vector>
-#include <bela/phmap.hpp>
+#include <gtl/phmap.hpp>
 
 namespace priv {
 
 using wid_t = WELL_KNOWN_SID_TYPE;
-using alias_t = bela::flat_hash_map<std::wstring, std::wstring>;
+using alias_t = gtl::flat_hash_map<std::wstring, std::wstring>;
 std::wstring AppAliasFile();
 bool AppAliasInitialize(HWND hbox, priv::alias_t &alias);
 static constexpr const auto whitecolor = RGB(255, 255, 255);

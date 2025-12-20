@@ -1,7 +1,7 @@
 #ifndef WSUDO_ENV_HPP
 #define WSUDO_ENV_HPP
 #include <bela/base.hpp>
-#include <bela/phmap.hpp>
+#include <gtl/phmap.hpp>
 #include <bela/ascii.hpp>
 #include <bela/simulator.hpp>
 #include <functional>
@@ -10,7 +10,7 @@ namespace wsudo {
 
 class Derivator {
 public:
-  using value_type = bela::flat_hash_map<std::wstring, std::wstring, bela::env::StringCaseInsensitiveHash,
+  using value_type = gtl::flat_hash_map<std::wstring, std::wstring, bela::env::StringCaseInsensitiveHash,
                                          bela::env::StringCaseInsensitiveEq>;
   using apply_t = std::function<void(std::wstring_view, std::wstring_view)>;
   Derivator() = default;
